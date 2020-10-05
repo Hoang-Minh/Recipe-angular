@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-12 col-md-4 col-md-offset-4">
-    <form>
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
       <h2 style="text-align: center">Authentication Form</h2>
       <div class="form-group">
         <label for="email">Email</label>
@@ -9,8 +9,16 @@
           type="email"
           id="email"
           placeholder="Your email"
+          required
+          email
+          ngModel
+          name="email"
+          #email="ngModel"
         />
       </div>
+      <span class="errorMessage" *ngIf="!email.valid && email.touched"
+        >Email is required</span
+      >
       <div class="form-group">
         <label for="password">Password</label>
         <input
@@ -18,11 +26,23 @@
           type="password"
           id="password"
           placeholder="Your password"
+          required
+          minlength="6"
+          ngModel
+          name="password"
+          #password="ngModel"
         />
       </div>
+      <span class="errorMessage" *ngIf="!password.valid && password.touched"
+        >Invalid Password</span
+      >
       <div class="btn-toolbar">
-        <button class="btn btn-primary">Sign Up</button>
-        <button class="btn btn-primary">Switch mode</button>
+        <button class="btn btn-primary" type="submit">
+          {{ isLogIn ? "Login" : "Signup" }}
+        </button>
+        <button class="btn btn-danger" (click)="toggleMode()">
+          Switch mode to {{ isLogIn ? "Signup" : "Login" }}
+        </button>
       </div>
     </form>
   </div>
