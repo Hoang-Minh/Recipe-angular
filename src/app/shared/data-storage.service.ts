@@ -11,7 +11,7 @@ export class DataStorageService {
   constructor(private http: HttpClient, private recipeService: RecipeService) {}
   fetchRecipes() {
     return this.http
-      .get<Recipe[]>('https://recipe-2b298.firebaseio.com/recipes.json')
+      .get<Recipe[]>('https://recipe-f5f47.firebaseio.com/recipes.json')
       .pipe(
         map((recipes) => {
           return recipes.map((recipe) => {
@@ -32,7 +32,7 @@ export class DataStorageService {
   storeRecipes() {
     const recipes = this.recipeService.getRecipes();
     return this.http
-      .put('https://recipe-2b298.firebaseio.com/recipes.json', recipes)
+      .put('https://recipe-f5f47.firebaseio.com/recipes.json', recipes)
       .subscribe((response) => {
         console.log(response);
       });
