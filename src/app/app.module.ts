@@ -18,6 +18,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { HomeComponent } from './home/home.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AlertComponent } from './shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     ShoppingEditComponent,
     HomeComponent,
     LoadingSpinnerComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
