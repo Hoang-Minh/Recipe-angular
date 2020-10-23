@@ -8,10 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { HomeComponent } from './home/home.component';
-import { RecipesModule } from './recipes/recipes.module';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
-import { AuthModule } from './auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
 
@@ -23,10 +20,10 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer
     AppRoutingModule,
     StoreModule.forRoot({ shoppingList: shoppingListReducer }),
     FormsModule,
-    RecipesModule,
-    ShoppingListModule,
+    // RecipesModule, ---> remove here because we use lazy load for RecipesModule
+    // ShoppingListModule, ---> remove here because we use lazy load for ShoppingListModule
     SharedModule,
-    AuthModule,
+    // AuthModule, ---> remove here because we use lazy load for AuthModule
   ],
   providers: [
     {
