@@ -10,7 +10,7 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { StoreModule } from '@ngrx/store';
-import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
+import * as fromApp from './store/app.reducer';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent],
@@ -18,11 +18,11 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({ shoppingList: shoppingListReducer }),
+    StoreModule.forRoot(fromApp.appReducer),
     FormsModule,
+    SharedModule,
     // RecipesModule, ---> remove here because we use lazy load for RecipesModule
     // ShoppingListModule, ---> remove here because we use lazy load for ShoppingListModule
-    SharedModule,
     // AuthModule, ---> remove here because we use lazy load for AuthModule
   ],
   providers: [
